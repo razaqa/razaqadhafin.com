@@ -85,16 +85,25 @@ class Post extends Model
         return $this->hasMany(Like::class);
     }
 
+    /**
+     * Get all published post data.
+     */
     public function scopePublished($query)
     {
         return $query->where('is_published', true);
     }
 
+    /**
+     * Get all draft post data.
+     */
     public function scopeDrafted($query)
     {
         return $query->where('is_published', false);
     }
 
+    /**
+     * Get post publish status data.
+     */
     public function getPublishedAttribute()
     {
         return ($this->is_published) ? 'Yes' : 'No';
