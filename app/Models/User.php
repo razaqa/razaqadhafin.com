@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -54,7 +54,7 @@ class User extends Authenticatable
 
         static::creating(function ($user) {
             if(empty($user->api_token)) {
-                $user->api_token = str_random(50);
+                $user->api_token = Str::random(50);
             }
         });
 
