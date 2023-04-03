@@ -8,4 +8,22 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     use HasFactory;
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name',
+        'for_work',
+    ];
+
+    /**
+     * Relation to Post model.
+     */
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class)->withTimestamps();
+    }
 }
