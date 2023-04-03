@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('user', function (Blueprint $table) {
-            //
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('api_token', 50)->nullable();
+            $table->boolean('is_admin')->default(false);
+            $table->string('reset_key', 10)->nullable();
+            $table->string('provider_name')->nullable()->after('id');
+            $table->string('provider_id')->nullable()->after('provider_name');
+            $table->string('password')->nullable()->change();
+            $table->string('avatar')->nullable();
         });
     }
 
@@ -21,8 +27,13 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('user', function (Blueprint $table) {
-            //
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('api_token');
+            $table->dropColumn('is_admin');
+            $table->dropColumn('reset_key');
+            $table->dropColumn('provider_name');
+            $table->dropColumn('provider_id');
+            $table->dropColumn('avatar');
         });
     }
 };
