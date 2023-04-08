@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PageController::class, 'homepage'])->name('homepage');
+Route::post('/posts/{post}/comment', [PageController::class, 'comment'])->name('comment');
+Route::post('/posts/{post}/like', [PageController::class, 'like'])->name('like');
+Route::post('/message', [PageController::class, 'message'])->name('message');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
