@@ -1,0 +1,334 @@
+body {
+  overflow: hidden;
+}
+
+.blog-container {
+  background: black;
+  padding: 0 50px;
+  min-height: 100vh;
+  display: flex;
+  width: 100vw;
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.center-image,
+.card__background img {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  object-fit: cover;
+}
+
+.slick-slide {
+  padding: 0 0.5em;
+}
+
+.card-slider {
+  margin: auto;
+  margin-top: 0;
+  width: 100%;
+}
+
+.card {
+  background: darkslategray;
+  display: flex;
+  padding: 2em;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  height: 350px;
+  box-shadow: 0 30px 50px -25px rgba(0, 0, 0, 0.25);
+}
+
+.card > * {
+  transition: opacity 350ms;
+}
+
+.card--opened > * {
+  opacity: 0;
+}
+
+.card__background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  background: darkslategray;
+  z-index: -1;
+  text-align: left;
+}
+
+.card__background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to top, darkslategray 0, rgba(255, 255, 255, 0) 70%);
+}
+
+.card__category {
+  text-transform: uppercase;
+  color: white;
+  background: #2e8234;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.2em 0.5em 0.25em;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.card__title {
+  text-transform: capitalize;
+  margin: 0.5em 0;
+  color: wheat;
+  font-family: "Harabara";
+  font-size: 3.5vh;
+  text-align: center;
+  width: 100%;
+}
+
+.card__duration {
+  color: wheat;
+  font-family: "Advent Pro";
+  font-weight: 400;
+  text-align: center;
+  width: 100%;
+}
+
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.modal-wrapper {
+  display: flex;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 150ms ease;
+}
+
+.modal-blog {
+  overflow: hidden;
+  position: relative;
+  height: 100%;
+  background: darkslategray;
+}
+
+.modal__scroll-area {
+  height: inherit;
+  overflow: auto;
+  border-radius: inherit;
+  position: relative;
+  z-index: 1;
+}
+
+.modal__close-button {
+  background: transparent;
+  border: none;
+  margin-bottom: auto;
+  color: #2e5f80;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2em;
+  z-index: 2;
+}
+
+.modal__header {
+  text-align: center;
+  position: relative;
+  display: flex;
+  padding: 0.5em;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 300px;
+  z-index: 1;
+}
+
+.modal__content {
+  padding: 2em;
+  color: wheat;
+  line-height: 1.5;
+}
+
+[data-modal-state="closed"] .modal-wrapper {
+  pointer-events: none;
+}
+
+[data-modal-state="closed"] .overlay {
+  pointer-events: none;
+}
+
+[data-modal-state="closed"] .modal-blog {
+  opacity: 0;
+}
+
+[data-modal-state="closed"] .overlay {
+  opacity: 0;
+}
+
+[data-modal-state="opening"] .modal__header,
+[data-modal-state="closing"] .modal__header,
+[data-modal-state="opening"] .modal__content,
+[data-modal-state="closing"] .modal__content,
+[data-modal-state="opening"] .modal__close-button,
+[data-modal-state="closing"] .modal__close-button {
+  opacity: 0;
+}
+
+[data-modal-state="opening"] .overlay {
+  transition: opacity 500ms ease;
+}
+
+[data-modal-state="closing"] .overlay {
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+[data-modal-state="open"] .modal__header,
+[data-modal-state="open"] .modal__content {
+  transition: opacity 450ms;
+}
+
+.content-footer .badge-fa:after{
+  position: absolute;
+  top: 22px;
+  margin-left: -10px;
+  text-align: center;
+  font-size: 7px;
+  border-radius: 50%;
+  color: wheat;
+  font-family: 'Advent Pro';
+  font-weight: 900;
+}
+
+.content-footer #likes-count:after{
+  content: attr(likes-number);
+}
+
+.content-footer #comments-count:after{
+  content: attr(comments-number);
+}
+
+.footer ul.social li i {
+  margin-right: 5px;
+  font-size: 15px;
+  -webkit-transition: 0.5s all ease;
+  -moz-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+}
+
+.content-footer ul.social li:hover i {
+  font-size: 17px;
+  margin-top: -10px;
+}
+
+.content-footer ul.social li a,
+.content-footer ul.quick-links li a {
+  color: wheat;
+}
+
+.content-footer ul.social li i,
+.content-footer ul.quick-links li i {
+  color: wheat;
+}
+
+.content-footer ul.social li a:hover {
+  color: wheat;
+}
+
+.content-footer .submit {
+  position: absolute;
+  right: 15px;
+  border: none;
+  color: wheat;
+  padding: 0 10px;
+  border-radius: 10px;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: 0.5s;
+  letter-spacing: 4px;
+  background: transparent;
+  border: none;
+}
+
+.content-footer .submit:hover {
+  background-color: #df7e7e;
+  color: white;
+}
+
+.content-footer .comment-field textarea {
+  width: 100%;
+  background-color: wheat;
+  border: none;
+  border-bottom: 1px solid #df7e7e;
+  outline: none;
+  background: transparent;
+  color: wheat;
+}
+
+.content-footer .comment-field {
+  margin-bottom: 30px;
+}
+
+.content-footer .comment-field label {
+  position: absolute;
+  top: 0;
+  left: 15px;
+  font-size: 16px;
+  color: wheat;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+.content-footer .comment-field textarea:focus ~ label,
+.content-footer .comment-field textarea:valid ~ label {
+  top: -20px;
+  left: 15px;
+  color: #df7e7e;
+  font-size: 12px;
+}
+
+.content-footer .comment-post-title {
+  color: wheat;
+  font-family: 'Harabara';
+  margin-bottom: 20px;
+}
+
+.modal-wrapper {
+  display: block;
+}
+
+.modal-wrapper .content-footer #like-form button {
+  background: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
