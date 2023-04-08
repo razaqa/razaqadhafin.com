@@ -7,7 +7,7 @@
 
 @section('prerender-js')
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <script>
+  <script type="text/javascript">
     function getBlogData(index) {
       @foreach( $posts as $key=>$post )
         if( {{$key}} == index ) {
@@ -21,7 +21,7 @@
           date = "{{$post->created_at->formatLocalized('%A, %d %B %Y')}}";
           likesCount = "{{$post->likes->count()}}";
           commentsCount = "{{$post->comments->count()}}";
-          comments = "{!! $post->comments->implode('body', '</p><hr><p>') !!}";
+          comments = `{!! $post->comments->implode('body', '</p><hr><p>') !!}`;
           commentRoute = "{{ route('comment', ['post' => $post->id]) }}";
           likeRoute = "{{ route('like', ['post' => $post->id]) }}";
           fbRoute = "https://www.facebook.com/sharer/sharer.php?u={{urlencode($url)}}&picture={{urlencode(asset($post->pict))}}&title={{urlencode($post->title)}}&quote={!! urlencode(\Illuminate\Support\Str::limit(strip_tags($post->body), $limit = 150, $end = '...')) !!}&description={!! urlencode(\Illuminate\Support\Str::limit(strip_tags($post->body), $limit = 150, $end = '...')) !!}";
@@ -45,7 +45,7 @@
     }
   </script>
 
-  <script>
+<script type="text/javascript">
     function getWorkData(index) {
       @foreach( $work_posts->posts->sortByDesc('created_at') as $key=>$work_post )
         if( {{$key}} == index ) {

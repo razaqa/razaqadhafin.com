@@ -28,7 +28,7 @@
     <link rel="stylesheet" href="{{ asset('css/base.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}" />
 
-    <script src="{{ asset('lib/jquery-3.3.1.min.js') }}"></script>
+    <script src="{{ asset('lib/jquery-3.3.1.min.js') }}" type="text/javascript"></script>
 
     @yield('extra-fonts')
     @yield('prerender-js')
@@ -40,13 +40,13 @@
     @yield('content')
     @include('layouts/footer')
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.1/web-animations.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.3.1/smooth-scrollbar.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-    <script src="{{ asset('lib/popper.min.js') }}"></script>
-    <script src="{{ asset('lib/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/base.js') }}"></script>
-    <script src="{{ asset('js/nav.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.1/web-animations.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smooth-scrollbar/8.3.1/smooth-scrollbar.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" type="text/javascript"></script>
+    <script src="{{ asset('lib/popper.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('lib/bootstrap.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/base.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/nav.js') }}" type="text/javascript"></script>
     @yield('extra-js')
 
   </body>
