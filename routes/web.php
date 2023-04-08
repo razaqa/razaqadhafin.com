@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PageController::class, 'homepage'])->name('homepage');
 Route::post('/posts/{post}/comment', [PageController::class, 'comment'])->name('comment');
 Route::get('/article/{article_id}', [PageController::class, 'article'])->name('article');
+Route::get('/category/{tag_name}', [PageController::class, 'category'])->name('category');
 Route::post('/posts/{post}/like', [PageController::class, 'like'])->name('like');
 Route::post('/message', [PageController::class, 'message'])->name('message');
 
