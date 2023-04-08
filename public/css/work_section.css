@@ -1,0 +1,235 @@
+.work {
+  margin-top: 200vh;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.work .blog-container {
+  background: black;
+  padding: 0 50px 0 45px;
+  min-height: 100vh;
+  display: flex;
+  width: 100vw;
+}
+
+.work .icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.work .center-image,
+.work .card__background img {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  object-fit: cover;
+}
+
+.work .slick-slide {
+  padding: 0 0.5em;
+}
+
+.work .card-slider {
+  margin: auto;
+  margin-top: 0;
+  width: 100%;
+}
+
+.work .card {
+  background: darkslategray;
+  display: flex;
+  padding: 2em;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  height: 350px;
+  box-shadow: 0 30px 50px -25px rgba(0, 0, 0, 0.25);
+}
+
+.work .card > * {
+  transition: opacity 350ms;
+}
+
+.work .card--opened > * {
+  opacity: 0;
+}
+
+.work .card__background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  background: darkslategray;
+  z-index: -1;
+  text-align: left;
+}
+
+.work .card__background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to top, darkslategray 0, rgba(255, 255, 255, 0) 70%);
+}
+
+.work .card__category {
+  text-transform: uppercase;
+  color: white;
+  background: #2e8234;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.2em 0.5em 0.25em;
+  margin: 0 auto;
+}
+
+.work .card__title {
+  text-transform: capitalize;
+  margin: 0.5em 0;
+  color: wheat;
+  font-family: "Harabara";
+  font-size: 3.5vh;
+  width: 100%;
+  text-align: center;
+}
+
+.work .card__title a {
+  color: wheat;
+}
+
+.work .card__title a:hover {
+  text-decoration: none;
+  font-size: 3.6vh;
+  color: wheat;
+}
+
+.work .card__duration {
+  color: wheat;
+  font-family: "Advent Pro";
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+}
+
+.work .modal-wrapper,
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.work .modal-wrapper {
+  display: flex;
+}
+
+.work .overlay {
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 150ms ease;
+}
+
+.work .modal-work {
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+  width: 90vw;
+  height: 90vh;
+  max-width: 500px;
+  background: darkslategray;
+  border-radius: 20px;
+}
+
+.work .modal__scroll-area {
+  height: inherit;
+  overflow: auto;
+  border-radius: inherit;
+  position: relative;
+  z-index: 1;
+}
+
+.work .modal__close-button {
+  background: transparent;
+  border: none;
+  margin-bottom: auto;
+  color: #2e5f80;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2em;
+  z-index: 2;
+}
+
+.work .modal__header {
+  text-align: center;
+  position: relative;
+  display: flex;
+  padding: 0.5em;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  min-height: 300px;
+  z-index: 1;
+}
+
+.work .modal__content {
+  padding: 2em;
+  color: wheat;
+  line-height: 1.5;
+}
+
+[data-modal-state="closed"] .modal-wrapper {
+  pointer-events: none;
+}
+
+[data-modal-state="closed"] .overlay {
+  pointer-events: none;
+}
+
+[data-modal-state="closed"] .modal-work {
+  opacity: 0;
+}
+
+[data-modal-state="closed"] .overlay {
+  opacity: 0;
+}
+
+[data-modal-state="opening"] .modal__header,
+[data-modal-state="closing"] .modal__header,
+[data-modal-state="opening"] .modal__content,
+[data-modal-state="closing"] .modal__content,
+[data-modal-state="opening"] .modal__close-button,
+[data-modal-state="closing"] .modal__close-button {
+  opacity: 0;
+}
+
+[data-modal-state="opening"] .overlay {
+  transition: opacity 500ms ease;
+}
+
+[data-modal-state="closing"] .overlay {
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+[data-modal-state="open"] .modal__header,
+[data-modal-state="open"] .modal__content {
+  transition: opacity 450ms;
+}

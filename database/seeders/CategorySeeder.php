@@ -12,6 +12,13 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        Category::factory(15)->create();
+        Category::updateOrCreate([
+            'name'    => 'Works'
+        ],[
+            'name'    => 'Works',
+            'desc'    => 'Special Category for Works',
+            'is_special' => true
+        ]);
+        Category::factory(20)->create();
     }
 }

@@ -1,0 +1,13 @@
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+body {
+  background-color: black;
+  color: white;
+  font-family: "Advent Pro";
+  overflow-x: hidden;
+}
+
+html {
+  cursor: url("/img/cursor.png") 18 18, auto;
+  background-color: black;
+}
