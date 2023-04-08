@@ -1,0 +1,180 @@
+.content-category {
+  position: relative;
+}
+
+.header-overlay-about {
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+}
+
+/* <!----------------Image Header------------------!> */
+
+.header-container {
+  position: relative;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.header-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header-text h1, .header-text h4, .header-text h5 {
+  color: white;
+}
+
+.header-text h1 {
+  font-size: 6vh;
+  font-family: 'Harabara';
+}
+
+.header-text a:hover {
+  color: white;
+}
+.header-img {
+  width:100%;
+  height: 65vh;
+  object-fit: cover;
+}
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.section-title {
+  text-align: center;
+  margin-top: 12vh;
+  z-index: -2;
+}
+
+.section-title h3 {
+  font-family: "Harabara";
+  color: white;
+  font-size: 50px;
+}
+
+.section-description {
+  color: darkslategray;
+  z-index: -2;
+}
+
+.underline--stars {
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/78779/star.svg");
+  background-position: 3px 2px;
+  background-size: 10px 9px;
+  font-family: "Harabara";
+  text-align: center;
+  color: #ff8702;
+  font-size: 50px;
+}
+
+.card {
+  margin: 10px;
+  background: darkslategray;
+  display: flex;
+  padding: 2em;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  height: 350px;
+  box-shadow: 0 30px 50px -25px rgba(0, 0, 0, 0.25);
+}
+
+.card > * {
+  transition: opacity 350ms;
+}
+
+.card__background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  background: darkslategray;
+  z-index: -1;
+  text-align: left;
+}
+
+.card__background::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to top, darkslategray 0, rgba(255, 255, 255, 0) 70%);
+}
+
+.card__category {
+  text-transform: uppercase;
+  color: white;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.2em 0.5em 0.25em;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.card__title {
+  text-transform: capitalize;
+  margin: 0.5em 0;
+  color: wheat;
+  font-family: "Harabara";
+  font-size: 3.5vh;
+  width: 100%;
+  text-align: center;
+}
+
+.card__duration {
+  color: wheat;
+  font-family: "Advent Pro";
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+}
+
+.card a {
+  text-decoration: none;
+  width: 100%;
+}
+
+.card a:hover {
+  text-decoration: none;
+}
+
+.footer {
+  margin-top: 0;
+}
+
+.list {
+  position: relative;
+  width: 100%;
+}
+
+#content {
+  position: relative;
+}
+
+#menuArea {
+  z-index: 10;
+}
+
+.footer-wrapper {
+  padding-left: 0;
+  padding-right: 0;
+}
