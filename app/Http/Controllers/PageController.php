@@ -60,14 +60,16 @@ class PageController extends Controller
         $post->comments()->create([
             'body' => $request->body
         ]);
+        flash()->overlay('Comment submitted successfully.');
 
-        return redirect()->route('article', ['article_id', $post->id]);
+        return redirect()->route('article', ['article_id' => $post->id]);
 
     }
 
     public function like(Request $request, Post $post)
     {
         $post->likes()->create();
+        flash()->overlay('Like submitted successfully.');
         
         return redirect()->route('article', ['article_id' => $post->id]);
 

@@ -54,7 +54,7 @@
           </div>
           <br>
 
-          @if ($post->tags->implode('for_work', '') == '0')
+          @if ($post->tags->where('for_work', false)->count() > 0)
           <div class="content-footer">
             <div class="row">
               <div class="col-xs-12 col-sm-12 col-md-12">
@@ -66,7 +66,7 @@
                     </form>
                   </li>
                   <li class="list-inline-item">
-                    <a id="fb-route" href="https://www.facebook.com/sharer/sharer.php?u={{urlencode($url)}}&picture={{urlencode(asset($post->pict))}}&title={{urlencode($post->title)}}&quote={!! urlencode(str_limit(strip_tags($post->body), $limit = 150, $end = '...')) !!}&description={!! urlencode(str_limit(strip_tags($post->body), $limit = 150, $end = '...')) !!}" target="_blank"> <i class="fa fa-facebook"></i></a>
+                    <a id="fb-route" href="https://www.facebook.com/sharer/sharer.php?u={{urlencode($url)}}&picture={{urlencode(asset($post->pict))}}&title={{urlencode($post->title)}}&quote={!! urlencode(\Illuminate\Support\Str::limit(strip_tags($post->body), $limit = 150, $end = '...')) !!}&description={!! urlencode(\Illuminate\Support\Str::limit(strip_tags($post->body), $limit = 150, $end = '...')) !!}" target="_blank"> <i class="fa fa-facebook"></i></a>
                   </li>
                   <li class="list-inline-item">
                     <a id="twitter-route" href="https://twitter.com/intent/tweet?original_referer=https%3A%2F%2Fdeveloper.twitter.com%2Fen%2Fdocs%2Ftwitter-for-websites%2Ftweet-button%2Foverview&ref_src=twsrc%5Etfw&related=twitterapi%2Ctwitter&tw_p=tweetbutton&text={{urlencode($post->title)}}&url={{urlencode($url)}}" target="_blank"><i class="fa fa-twitter"></i></a>
