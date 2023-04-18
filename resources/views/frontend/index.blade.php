@@ -19,7 +19,7 @@
                         </div>
 
                         <div class="panel-body">
-                            <p>{!! str_limit(strip_tags($post->body), $limit = 150, $end = '...') !!}</p>
+                            <p>{!! \Illuminate\Support\Str::limit(strip_tags($post->body), $limit = 150, $end = '...') !!}</p>
                             <p>
                                 Tags:
                                 @forelse ($post->tags as $tag)
