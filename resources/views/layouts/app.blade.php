@@ -14,7 +14,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app-v2.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
     <script src="{{ asset('vendor/ckeditor/ckeditor.js') }}"></script>

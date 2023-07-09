@@ -90,9 +90,9 @@ work_cards.forEach((item) => {
     $(".work .modal-wrapper .card__category").html(work_card_data["category"]);
     $(".work .modal-wrapper .card__duration").html(work_card_data["date"]);
     $(".work .modal-wrapper .card__background img").attr('src', work_card_data["pict"]);
-    $(".contact").css('z-index', -3);
-    $("#menuArea").css('z-index', -2);
-    
+
+    $(".work").css('z-index', 0);
+
     document.querySelector("body").classList.add("no-scroll");
 
     let animation = work_flipAnimation(work_card, work_modal, {
@@ -127,7 +127,6 @@ work_closeButton.addEventListener("click", (e) => {
     animation.cancel();
   };
 
-  $(".contact").css('z-index', -2);
-  $("#menuArea").css('z-index', 0);
+  $(".work").css('z-index', -1);
 
 });

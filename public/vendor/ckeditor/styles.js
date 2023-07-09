@@ -40,8 +40,11 @@ CKEDITOR.stylesSet.add( 'default', [
 		element: 'div',
 		styles: {
 			padding: '5px 10px',
-			background: '#eee',
-			border: '1px solid #ccc'
+			background: 'gray',
+			border: '1px solid white',
+			'border-radius': '5px',
+			color: 'white',
+			'font-family': 'courier new',
 		}
 	},
 

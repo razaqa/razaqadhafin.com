@@ -12,6 +12,13 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(15)->create();
+        // User::factory(15)->create();
+        User::create([
+            'name'     => 'Admin',
+            'email'    => 'admin@razaqadhafin.com',
+            'password' => bcrypt(''), // Password, Fill this!
+            'is_admin' => true,
+            'avatar'   => asset('img/RazaafTech.png')
+        ]);
     }
 }

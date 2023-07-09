@@ -2,29 +2,27 @@
 
 @section('title', $post->title)
 
+@section('extra-meta')
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@programmerpacil">
+  <meta name="twitter:creator" content="@programmerpacil">
+  <meta name="twitter:title" content="{{$post->title}}">
+  <meta name="twitter:description" content="{!! \Illuminate\Support\Str::limit(strip_tags($post->body), $limit = 150, $end = '...') !!}">
+  <meta name="twitter:image" content="{{ asset($post->pict) }}">
+
+@endsection
+
 @section('extra-fonts')
 
 @endsection
 
 @section('prerender-js')
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <script>
-    function changeMetaContent(metaName, newMetaContent) {
-      $("meta").each(function() {
-
-        if($(this).attr("name") == metaName) {
-          $(this).attr("content" , newMetaContent);
-        };
-      });
-    }
-    changeMetaContent("twitter:title", "{{$post->title}}");
-    changeMetaContent("twitter:description", `{!! \Illuminate\Support\Str::limit(strip_tags($post->body), $limit = 150, $end = '...') !!}`);
-    changeMetaContent("twitter:image", "{{ asset($post->pict) }}");
-  </script>
 @endsection
 
 @section('extra-css')
-  <link rel="stylesheet" href="{{ asset('css/article.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/article-v2.css') }}" />
 @endsection
 
 @section('content')
@@ -80,7 +78,7 @@
             <hr>
             <div class="row comment-field">
               <div class="col-xs-12 col-sm-12 col-md-12">
-                <form action="route('comment', ['post' => $post->id])" method="POST">
+                <form action="{{ route('comment', ['post' => $post->id]) }}" method="POST">
                   @csrf
                   <div class="comment-post-title text-center">
                     wanna share your thought? please let me know!

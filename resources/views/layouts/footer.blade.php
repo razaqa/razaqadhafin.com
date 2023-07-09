@@ -11,7 +11,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
           <ul class="list-unstyled list-inline social text-center">
             <li class="list-inline-item">
-              <a href="https://www.linkedin.com/in/razaqa-dhafin/" target="_blank"> <i class="fa fa-linkedin"></i></a>
+              <a href="https://www.linkedin.com/in/razaaf/" target="_blank"> <i class="fa fa-linkedin"></i></a>
             </li>
             <li class="list-inline-item">
               <a href="https://www.instagram.com/razaqa.dhafin_/" target="_blank"><i class="fa fa-instagram"></i></a>

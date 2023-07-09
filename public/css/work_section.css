@@ -195,6 +195,21 @@
   line-height: 1.5;
 }
 
+.work .modal__content img {
+  transition: transform .2s;
+}
+
+.work .modal__content img:hover {
+  -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  -moz-transform: scale(1.5); /* Mozila 3.2 */
+  transform: scale(1.5); 
+}
+
+.work .modal__content a {
+  color: aliceblue;
+}
+
 [data-modal-state="closed"] .modal-wrapper {
   pointer-events: none;
 }

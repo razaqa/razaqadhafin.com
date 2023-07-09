@@ -96,8 +96,7 @@ blog_cards.forEach((item) => {
       $(".blog .modal-wrapper .content-footer .comments-list").html(blog_card_data["comments"]);
     }
 
-    $(".work").css('z-index', -3);
-    $("#menuArea").css('z-index', -2);
+    $(".blog").css('z-index', 0);
 
     document.querySelector("body").classList.add("no-scroll");
 
@@ -133,6 +132,5 @@ blog_closeButton.addEventListener("click", (e) => {
     animation.cancel();
   };
 
-  $(".work").css('z-index', -2);
-  $("#menuArea").css('z-index', 0);
+  $(".blog").css('z-index', -1);
 });

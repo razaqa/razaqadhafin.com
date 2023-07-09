@@ -81,7 +81,7 @@ body {
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(to top, darkslategray 0, rgba(255, 255, 255, 0) 70%);
+  background: linear-gradient(to top, #192d2d 0, rgba(255, 255, 255, 0) 70%);
 }
 
 .card__category {
@@ -135,7 +135,7 @@ body {
   overflow: hidden;
   position: relative;
   height: 100%;
-  background: darkslategray;
+  background: #192d2d;
 }
 
 .modal__scroll-area {
@@ -166,7 +166,7 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  min-height: 300px;
+  min-height: 80%;
   z-index: 1;
 }
 
@@ -174,21 +174,6 @@ body {
   padding: 2em;
   color: wheat;
   line-height: 1.5;
-}
-
-.modal__content img {
-  transition: transform .2s;
-}
-
-.modal__content img:hover {
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Safari 3-8 */
-  -moz-transform: scale(1.5); /* Mozila 3.2 */
-  transform: scale(1.5); 
-}
-
-.modal__content a {
-  color: aliceblue;
 }
 
 [data-modal-state="closed"] .modal-wrapper {
@@ -337,13 +322,110 @@ body {
   margin-bottom: 20px;
 }
 
-.modal-wrapper {
-  display: block;
-}
-
 .modal-wrapper .content-footer #like-form button {
   background: transparent;
   border: none;
   margin: 0;
   padding: 0;
+}
+
+/*
+ * Author: http://stuffandnonsense.co.uk/blog/about/hardboiled_css3_media_queries/
+ */
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+/* Styles */
+  .paragraph {
+    padding: 0 5px;
+  }
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) {
+/* Styles */
+  .paragraph {
+    padding: 0 10px;
+  }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+/* Styles */
+  .paragraph {
+    padding: 0 5px;
+  }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+  .paragraph {
+    padding: 0 25%;
+  }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+  .paragraph {
+    padding: 0 25%;
+  }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+  .paragraph {
+    padding: 0 25%;
+  }
+}
+
+
+/* iPad ----------- */
+@media only screen 
+and (min-width : 466px) {
+/* Styles */
+  .paragraph {
+    padding: 0 15%;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1024px) {
+/* Styles */
+  .paragraph {
+    padding: 0 30%;
+  }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+/* Styles */
+  .paragraph {
+    padding: 0 30%;
+  }
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+/* Styles */
+  .paragraph {
+    padding: 0 35%;
+  }
 }

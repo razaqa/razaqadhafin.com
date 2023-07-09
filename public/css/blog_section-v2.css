@@ -1,16 +1,21 @@
-body {
+.blog {
+  margin-top: 100vh;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: -1;
   overflow: hidden;
 }
 
-.blog-container {
+.blog .blog-container {
   background: black;
-  padding: 0 50px;
+  padding: 0 50px 0 45px;
   min-height: 100vh;
   display: flex;
   width: 100vw;
 }
 
-.icon {
+.blog .icon {
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -19,8 +24,14 @@ body {
   fill: currentColor;
 }
 
-.center-image,
-.card__background img {
+.blog .blend-image,
+.blog .card__background img {
+  filter: brightness(100%) grayscale(100%);
+  mix-blend-mode: screen;
+}
+
+.blog .center-image,
+.blog .card__background img {
   width: 100%;
   min-height: 100%;
   position: absolute;
@@ -29,18 +40,18 @@ body {
   object-fit: cover;
 }
 
-.slick-slide {
+.blog .slick-slide {
   padding: 0 0.5em;
 }
 
-.card-slider {
+.blog .card-slider {
   margin: auto;
   margin-top: 0;
   width: 100%;
 }
 
-.card {
-  background: darkslategray;
+.blog .card {
+  background: #ff8702;
   display: flex;
   padding: 2em;
   flex-direction: column;
@@ -54,40 +65,40 @@ body {
   box-shadow: 0 30px 50px -25px rgba(0, 0, 0, 0.25);
 }
 
-.card > * {
+.blog .card > * {
   transition: opacity 350ms;
 }
 
-.card--opened > * {
+.blog .card--opened > * {
   opacity: 0;
 }
 
-.card__background {
+.blog .card__background {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   overflow: hidden;
-  background: darkslategray;
+  background: #ff8702;
   z-index: -1;
   text-align: left;
 }
 
-.card__background::after {
+.blog .card__background::after {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background: linear-gradient(to top, darkslategray 0, rgba(255, 255, 255, 0) 70%);
+  background: linear-gradient(to top, #ff8702 0, rgba(255, 255, 255, 0) 70%);
 }
 
-.card__category {
+.blog .card__category {
   text-transform: uppercase;
-  color: white;
-  background: #2e8234;
+  color: #fff;
+  background: darkslategray;
   font-size: 0.85em;
   font-weight: 600;
   padding: 0.2em 0.5em 0.25em;
@@ -95,50 +106,65 @@ body {
   margin: 0 auto;
 }
 
-.card__title {
+.blog .card__title {
   text-transform: capitalize;
   margin: 0.5em 0;
-  color: wheat;
+  color: darkslategray;
   font-family: "Harabara";
   font-size: 3.5vh;
   text-align: center;
   width: 100%;
 }
 
-.card__duration {
-  color: wheat;
+.blog .card__title a {
+  color: darkslategray;
+}
+
+.blog .card__title a:hover {
+  text-decoration: none;
+  font-size: 3.6vh;
+  color: darkslategray;
+}
+
+.blog .card__duration {
+  color: darkslategray;
   font-family: "Advent Pro";
   font-weight: 400;
   text-align: center;
   width: 100%;
 }
 
-.modal-wrapper {
+.blog .modal-wrapper,
+.overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -2;
+  z-index: 1;
 }
 
-/* .modal-wrapper {
+.blog .modal-wrapper {
   display: flex;
-} */
+}
 
-.overlay {
+.blog .overlay {
   background: rgba(0, 0, 0, 0.5);
   transition: opacity 150ms ease;
 }
 
-.modal-blog {
+.blog .modal-blog {
   overflow: hidden;
   position: relative;
-  height: 100%;
-  background: darkslategray;
+  margin: auto;
+  width: 90vw;
+  height: 90vh;
+  max-width: 500px;
+  background: #ff8702;
+  border-radius: 20px;
 }
 
-.modal__scroll-area {
+.blog .modal__scroll-area {
   height: inherit;
   overflow: auto;
   border-radius: inherit;
@@ -146,7 +172,7 @@ body {
   z-index: 1;
 }
 
-.modal__close-button {
+.blog .modal__close-button {
   background: transparent;
   border: none;
   margin-bottom: auto;
@@ -158,7 +184,7 @@ body {
   z-index: 2;
 }
 
-.modal__header {
+.blog .modal__header {
   text-align: center;
   position: relative;
   display: flex;
@@ -170,25 +196,10 @@ body {
   z-index: 1;
 }
 
-.modal__content {
+.blog .modal__content {
   padding: 2em;
-  color: wheat;
+  color: #6d1313;
   line-height: 1.5;
-}
-
-.modal__content img {
-  transition: transform .2s;
-}
-
-.modal__content img:hover {
-  -ms-transform: scale(1.5); /* IE 9 */
-  -webkit-transform: scale(1.5); /* Safari 3-8 */
-  -moz-transform: scale(1.5); /* Mozila 3.2 */
-  transform: scale(1.5); 
-}
-
-.modal__content a {
-  color: aliceblue;
 }
 
 [data-modal-state="closed"] .modal-wrapper {
@@ -237,7 +248,7 @@ body {
   text-align: center;
   font-size: 7px;
   border-radius: 50%;
-  color: wheat;
+  color: #96330e;
   font-family: 'Advent Pro';
   font-weight: 900;
 }
@@ -265,23 +276,23 @@ body {
 
 .content-footer ul.social li a,
 .content-footer ul.quick-links li a {
-  color: wheat;
+  color: #96330e;
 }
 
 .content-footer ul.social li i,
 .content-footer ul.quick-links li i {
-  color: wheat;
+  color: #96330e;
 }
 
 .content-footer ul.social li a:hover {
-  color: wheat;
+  color: #96330e;
 }
 
-.content-footer .submit {
+.blog .content-footer .submit {
   position: absolute;
   right: 15px;
   border: none;
-  color: wheat;
+  color: #96330e;
   padding: 0 10px;
   border-radius: 10px;
   font-size: 16px;
@@ -294,54 +305,50 @@ body {
   border: none;
 }
 
-.content-footer .submit:hover {
-  background-color: #df7e7e;
+.blog .content-footer .submit:hover {
+  background-color: #96330e;
   color: white;
 }
 
-.content-footer .comment-field textarea {
+.blog .content-footer .comment-field textarea {
   width: 100%;
-  background-color: wheat;
+  background-color: #96330e;
   border: none;
-  border-bottom: 1px solid #df7e7e;
+  border-bottom: 1px solid #96330e;
   outline: none;
   background: transparent;
-  color: wheat;
+  color: black;
 }
 
-.content-footer .comment-field {
+.blog .content-footer .comment-field {
   margin-bottom: 30px;
 }
 
-.content-footer .comment-field label {
+.blog .content-footer .comment-field label {
   position: absolute;
   top: 0;
   left: 15px;
   font-size: 16px;
-  color: wheat;
+  color: #96330e;
   pointer-events: none;
   transition: 0.5s;
 }
 
-.content-footer .comment-field textarea:focus ~ label,
-.content-footer .comment-field textarea:valid ~ label {
+.blog .content-footer .comment-field textarea:focus ~ label,
+.blog .content-footer .comment-field textarea:valid ~ label {
   top: -20px;
   left: 15px;
-  color: #df7e7e;
+  color: darkslategray;
   font-size: 12px;
 }
 
-.content-footer .comment-post-title {
-  color: wheat;
+.blog .content-footer .comment-post-title {
+  color: #96330e;
   font-family: 'Harabara';
   margin-bottom: 20px;
 }
 
-.modal-wrapper {
-  display: block;
-}
-
-.modal-wrapper .content-footer #like-form button {
+.blog .modal-wrapper .content-footer #like-form button {
   background: transparent;
   border: none;
   margin: 0;

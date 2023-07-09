@@ -89,13 +89,20 @@ class PageController extends Controller
 
     public function category(Request $request, $tag_name)
     {
-        $posts = Post::whereHas('tags', function($q) use($tag_name) {
-                    $q->where('name', $tag_name);
-                })
-                ->where('is_published', true)
-                ->orderBy('created_at', 'desc')
-                ->get();
-
+        if ($tag_name == 'All') {
+            $posts = Category::where('name', 'Works')
+                ->with('posts')
+                ->first()
+                ->posts
+                ->sortByDesc('created_at', SORT_NATURAL);
+        } else {
+            $posts = Post::whereHas('tags', function($q) use($tag_name) {
+                $q->where('name', $tag_name);
+            })
+            ->where('is_published', true)
+            ->orderBy('created_at', 'desc')
+            ->get();
+        }
         $url = $request->url();
 
         return view('pages.category', get_defined_vars());

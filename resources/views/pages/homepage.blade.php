@@ -2,6 +2,17 @@
 
 @section('title', 'Welcome')
 
+@section('extra-meta')
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@programmerpacil">
+  <meta name="twitter:creator" content="@programmerpacil">
+  <meta name="twitter:title" content="Razaaf Tech">
+  <meta name="twitter:description" content="Visit to Read Razaaf's Post">
+  <meta name="twitter:image" content="{{ asset('img/RazaafTechW.png') }}">
+
+@endsection
+
 @section('extra-fonts')
 @endsection
 
@@ -49,7 +60,7 @@
     function getWorkData(index) {
       @foreach( $work_posts->posts->sortByDesc('created_at') as $key=>$work_post )
         if( {{$key}} == index ) {
-          bodyPost = `{{$work_post->body}}`;
+          bodyPost = `{!! $work_post->body !!}`;
           title = "<a href='/article/{{$post->id}}'>{{$work_post->title}}</a>";
           pict = "{{asset($work_post->pict)}}";
           category = "{{$work_post->tags->implode('name', ' | ')}}";
@@ -68,11 +79,11 @@
 @endsection
 
 @section('extra-css')
-  <link rel="stylesheet" href="{{ asset('css/homepage.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/headline.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/blog_section.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/work_section.css') }}" />
-  <link rel="stylesheet" href="{{ asset('css/contact_section.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/homepage-v2.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/headline-v2.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/blog_section-v2.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/work_section-v2.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/contact_section-v2.css') }}" />
 @endsection
 
 @section('content')
@@ -277,6 +288,7 @@
         <div class="select-category">
           <label for="category-select-work">filter by category:</label>
           <select id="category-select-work" name="category">
+            <option value="/category/All">All</option>
             @foreach ($work_tags as $tag)
               <option value="/category/{{$tag->name}}">{{$tag->name}}</option>
             @endforeach
@@ -291,6 +303,7 @@
         <div class="blog-container">
           <div class="card-slider">
 
+          @if( isset($work_posts->posts) )
           @foreach( $work_posts->posts->sortByDesc('created_at') as $index=>$work_post )
             <div class="card-wrapper">
               <article class="card" id="work-{{ $index }}">
@@ -307,7 +320,8 @@
               </article>
             </div>
           @endforeach
-
+          @endif
+          
           </div>
         </div>
         <div class="overlay"></div>
@@ -441,8 +455,8 @@
       window.location.href = selectedValue;
     }
   </script>
-  <script src="{{ asset('js/scroll.js') }}"></script>
-  <script src="{{ asset('js/homepage.js') }}"></script>
-  <script src="{{ asset('js/blog_section.js') }}"></script>
-  <script src="{{ asset('js/work_section.js') }}"></script>
+  <script src="{{ asset('js/scroll-v1.js') }}"></script>
+  <script src="{{ asset('js/homepage-v1.js') }}"></script>
+  <script src="{{ asset('js/blog_section-v1.js') }}"></script>
+  <script src="{{ asset('js/work_section-v1.js') }}"></script>
 @endsection

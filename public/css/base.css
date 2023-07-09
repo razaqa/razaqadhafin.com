@@ -11,3 +11,21 @@ html {
   cursor: url("/img/cursor.png") 18 18, auto;
   background-color: black;
 }
+
+blockquote {
+  margin: 30px auto;
+  padding: 0 20px 20px 20px;
+  border-left: 8px solid currentColor;
+  font-style: italic;
+}
+
+blockquote::before{
+  font-family: Arial;
+  content: "\201C";
+  color: currentColor;
+  font-size: 4em;
+}
+
+blockquote::after{
+  content: '';
+}
