@@ -120,6 +120,15 @@
   background: linear-gradient(to top, darkslategray 0, rgba(255, 255, 255, 0) 70%);
 }
 
+.card__background img {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  object-fit: cover;
+}
+
 .card__category {
   text-transform: uppercase;
   color: white;
@@ -177,13 +186,4 @@
 .footer-wrapper {
   padding-left: 0;
   padding-right: 0;
-}
-
-.card__background img {
-  width: 100%;
-  min-height: 100%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  object-fit: cover;
 }

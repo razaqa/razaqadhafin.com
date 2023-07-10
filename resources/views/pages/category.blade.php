@@ -11,7 +11,7 @@
 @endsection
 
 @section('extra-css')
-  <link rel="stylesheet" href="{{ asset('css/category.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/category-v2.css') }}" />
 @endsection
 
 @section('content')
